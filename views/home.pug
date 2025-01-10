@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h2 Articles
+    ul
+        each article in articles
+            li
+                a(href=`/article/${article.id}`) #{article.title}
+                span (Published on #{article.date})
