@@ -64,4 +64,24 @@ router.post('/delete/:id',authMiddleware,(req,res)=>{
     res.redirect('/dashboard');
 });
 
+// Authentication routes
+
+router.get('/login',(req,res)=>{
+    res.send('login');
+});
+
+router.post('/login',(req,res)=>{
+    const {username,password} = req.body;
+    if(username === 'admin' && password === 'password'){
+        req.session.isLoggedIn = true;
+        res.redirect('/dashboard');
+    }else{
+        res.render('login',{error:'Invalid credentials'});
+    }
+});
+
+router.get('/logout',(req,res)=>{
+    req.session.destroy(()=>res.redirect('/'));
+});
+
 module.exports = router;
