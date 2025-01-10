@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+    h2 Edit Article
+    form(action=`/admin/articles/edit/${article.id}`,method='POST')
+        label(for='title') Title:
+        input(type='text',name='title',id='title',value=article.title,required)
+        br
+        label(for='content') Content:
+        textarea(name='content',id='content',required)=article.content
+        br
+        label(for='date') Date: 
+        input(type='date',name='date',id='date',value=article.date,required)
+        br
+        button(type='submit') Update

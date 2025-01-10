@@ -1,0 +1,11 @@
+extends layout
+
+block content 
+    h2 Admin Dashboard
+    a(href='/admin/articles/new') Add New Article
+    ul
+        each article in articles
+            li
+                h3 #{article.title}
+                a(href=`/admin/articles/edit/${article.id}`) Edit
+                a(href=`/admin/articles/delete/${article.id}`) Delete
