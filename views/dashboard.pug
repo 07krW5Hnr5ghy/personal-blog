@@ -2,10 +2,10 @@ extends layout
 
 block content 
     h2 Admin Dashboard
-    a(href='/articles/new') Add New Article
+    a(href='/add') Add New Article
     ul
         each article in articles
             li
                 h3 #{article.title}
-                a(href=`/admin/articles/edit/${article.id}`) Edit
-                a(href=`/admin/articles/delete/${article.id}`) Delete
+                a(href=`/edit/${article.id}`) Edit
+                a(href=`/delete/${article.id}`) Delete
