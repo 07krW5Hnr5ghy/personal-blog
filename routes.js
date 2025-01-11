@@ -67,7 +67,7 @@ router.post('/delete/:id',authMiddleware,(req,res)=>{
 // Authentication routes
 
 router.get('/login',(req,res)=>{
-    res.send('login');
+    res.render('login');
 });
 
 router.post('/login',(req,res)=>{

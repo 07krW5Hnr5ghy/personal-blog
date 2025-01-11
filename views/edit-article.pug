@@ -2,7 +2,7 @@ extends layout
 
 block content 
     h2 Edit Article
-    form(action=`/admin/articles/edit/${article.id}`,method='POST')
+    form(action=`/articles/edit/${article.id}`,method='POST')
         label(for='title') Title:
         input(type='text',name='title',id='title',value=article.title,required)
         br
