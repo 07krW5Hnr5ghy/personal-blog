@@ -98,6 +98,6 @@ This project is a simple personal blog application that allows an admin to creat
 - **Express-Session**: Session management for admin authentication.
 - **File System (fs)**: Storing articles as JSON files.
 
-## project url
+## Project url
 
 https://roadmap.sh/projects/personal-blog
