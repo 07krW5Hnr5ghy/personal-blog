@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require('fs');
+const path = require('path');
 const {
     articlesDir,
     getArticles,
@@ -39,7 +40,7 @@ router.get('/add',authMiddleware,(req,res)=>{
 router.post('/add',authMiddleware,(req,res)=>{
     const {title,content,date} = req.body;
     const id = Date.now().toString();
-    saveArticle(id,{title,content,date});
+    saveArticle({title,content,date,id});
     res.redirect('/dashboard');
 });
 
@@ -54,11 +55,11 @@ router.get('/edit/:id',authMiddleware,(req,res)=>{
 router.post('/edit/:id',authMiddleware,(req,res)=>{
     const {id} = req.params;
     const {title,content,date} = req.body;
-    saveArticle(id,{title,content,date});
+    saveArticle({title,content,date,id});
     res.redirect('/dashboard');
 });
 
-router.post('/delete/:id',authMiddleware,(req,res)=>{
+router.get('/delete/:id',authMiddleware,(req,res)=>{
     const {id} = req.params;
     deleteArticle(id);
     res.redirect('/dashboard');

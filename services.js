@@ -11,13 +11,15 @@ const getArticles = () => {
     }); 
 }
 
-const saveArticle = (id,data) => {
-    const filePath =  path.join(articlesDir, `${id}.json`);
+const saveArticle = (data) => {
+    const filePath =  path.join(articlesDir, `${data.id}.json`);
     fs.writeFileSync(filePath,JSON.stringify(data,null,2));
 }
 
 const deleteArticle = (id) => {
-    const filePath =  path.join(articlesDir, `${id}.json`);
+    let articles = getArticles();
+    articles = articles.filter(a => a.id !== id);
+    const filePath = path.join(articlesDir, `${id}.json`);
     if(fs.existsSync(filePath)) fs.unlinkSync(filePath);
 } 
 
